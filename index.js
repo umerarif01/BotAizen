@@ -13,8 +13,19 @@ for (const file of commandFiles) {
     client.commands.set(command.data.name, command);
 }
 
+const eventFiles = fs.readdirSync('./events').filter(file => file.endsWith('.js'));
+
+for (const file of eventFiles) {
+    const event = require(`./events/${file}`);
+    if (event.once) {
+        client.once(event.name, (...args) => event.execute(...args));
+    } else {
+        client.on(event.name, (...args) => event.execute(...args));
+    }
+}
+
 client.once('ready', () => {
-    console.log('Ready!');
+    console.log('🚀 Bot Aizen is Activated 🚀');
 });
 
 client.on('interactionCreate', async interaction => {

@@ -1,5 +1,5 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
-
+const { MessageEmbed } = require("discord.js");
 const axios = require('axios');
 
 module.exports = {
@@ -17,9 +17,13 @@ module.exports = {
         };
         let data = await getQuote();
 
+        const embed = new MessageEmbed()
+            .setTitle(`✨Anime: ${data.animename}✨` + `\nCharacter: ${data.character}`)
+            .setDescription(`Quote: ${data.quote}`)
+            .setColor("PURPLE");
         // console.log(data.animename);
-        await interaction.reply(`Anime: ${data.animename}` +
-            `\nCharacter: ${data.character}` + `\nQuote: ${data.quote}`);
+
+        await interaction.reply({ embeds: [embed] })
     },
 };
 

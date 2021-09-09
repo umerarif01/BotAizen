@@ -21,7 +21,7 @@ module.exports = {
             }
 
             const embed = new MessageEmbed()
-                .setTitle('😂 Random Meme 😂')
+                .setTitle('😂Random Meme😂')
                 .setTimestamp()
                 .setColor("ORANGE");
 
