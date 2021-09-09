@@ -22,7 +22,7 @@ module.exports = {
             }
 
             const embed = new MessageEmbed()
-                .setTitle('🐱  Meow!  🐱')
+                .setTitle('🐱  Meow  🐱')
                 .setTimestamp()
                 .setColor("WHITE");
 

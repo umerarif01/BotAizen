@@ -18,7 +18,7 @@ module.exports = {
         let data = await getQuote();
 
         const embed = new MessageEmbed()
-            .setTitle(`✨Anime: ${data.animename}✨` + `\nCharacter: ${data.character}`)
+            .setTitle(`✨Anime: ${data.animename}✨` + `\n\nCharacter: ${data.character}`)
             .setDescription(`Quote: ${data.quote}`)
             .setColor("PURPLE");
         // console.log(data.animename);
