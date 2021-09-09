@@ -5,26 +5,25 @@ const { MessageEmbed } = require("discord.js");
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName('cat')
-        .setDescription('Get a random picture of a cat'),
+        .setName('meme')
+        .setDescription('Get a random Meme'),
     execute: async(interaction) => {
         try {
             await interaction.deferReply().catch(_ => {});
 
             const fetchAPI = async() => {
-                const response = await fetch(`https://api.thecatapi.com/v1/images/search`, {
-                    method: "GET",
-                    headers: { "x-api-key": apiKey }
+                const response = await fetch(`https://some-random-api.ml/meme`, {
+                    method: "GET"
                 })
 
                 const jsonresp = await response.json();
-                return await jsonresp[0].url;
+                return await jsonresp.image;
             }
 
             const embed = new MessageEmbed()
-                .setTitle('🐱  Meow!  🐱')
+                .setTitle('😂 Random Meme 😂')
                 .setTimestamp()
-                .setColor("WHITE");
+                .setColor("ORANGE");
 
 
             embed.setImage(await fetchAPI())
