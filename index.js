@@ -26,6 +26,7 @@ for (const file of eventFiles) {
 
 client.once('ready', () => {
     console.log('🚀 Bot Aizen is Activated 🚀');
+    client.user.setActivity('/help', { type: "LISTENING" });
 });
 
 client.on('interactionCreate', async interaction => {

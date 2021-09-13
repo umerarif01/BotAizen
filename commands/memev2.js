@@ -4,8 +4,8 @@ const { MessageEmbed } = require("discord.js");
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName('memev2')
-        .setDescription('Get a random meme'),
+        .setName('meme')
+        .setDescription('Get a random meme(Reddit)'),
     execute: async(interaction) => {
         try {
             await interaction.deferReply().catch(_ => {});
